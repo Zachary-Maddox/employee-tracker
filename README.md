@@ -4,7 +4,9 @@
   This is a command line application that allows you to view / alter Employees,Roles,Departments inside of a buisness database.
   Start by opening your terminal and  running NPM Install, From there Run node index.js and answer the prompted questions or view the categories you wish by selecting the corresponding prompt.
 
-  github link:
+  <img src="./assets/images/employee-tracker.png">
+
+  github link: https://github.com/Zachary-Maddox/employee-tracker
   deployed video link: https://drive.google.com/file/d/13XIVRwdOK2oEiV6jkuj9q2NyKZYG5ObA/view
 
   
