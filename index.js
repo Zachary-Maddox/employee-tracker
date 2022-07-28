@@ -12,55 +12,50 @@ const connection = mysql.createConnection({
 });
 
 var updateAEmployee = ()=>{
-  inquirer
-    .prompt([{
-      name:"updateEmployee",
-      message:"What Employee would you like to update?",
-      type: "input",
-    }])
-    .then((answers) => {
-      },
-    firstQuestion()
-    )}
+  connection.query(
+    'SELECT * FROM employee WHERE `first_name` = ? and `last_name` = ? and `role_id` = ? and `manager_id` =? ',
+    ["", "", "", ""],
+    function(err, results) {
+      console.table(results);
+      firstQuestion();
+    }
+  );
+  }
 
 var addAEmployee = ()=>{
-  inquirer
-    .prompt([{
-      name:"whatEmployee",
-      message:"What Employee would you like to add?",
-      type: "input",
-    }])
-    .then((answers) => {
-      },
-    firstQuestion()
-    )}
+  connection.query(
+    'SELECT * FROM employee WHERE `first_name` = ? and `last_name` = ? and `role_id` = ? and `manager_id` =? ',
+    ["", "", "", ""],
+    function(err, results) {
+      console.table(results);
+      firstQuestion();
+    }
+  );
+  }
 
 var addARole = ()=>{
-  inquirer
-    .prompt([{
-      name:"whatRole",
-      message:"What Role would you like to add?",
-      type: "input",
-    }])
-    .then((answers) => {
-      },
-    firstQuestion()
-    )}
+  connection.query(
+    'SELECT * FROM role WHERE `title` = ? and `salary` = ? and `department_id` = ?',
+    ["","",""],
+    function(err, results) {
+      console.table(results);
+      firstQuestion();
+    }
+  );
+  }
 
 
 
 var addADept = ()=>{
-  inquirer
-    .prompt([{
-      name:"whatDept",
-      message:"What department would you like to add?",
-      type: "input",
-    }])
-    .then((answers) => {
-      },
-    firstQuestion()
-    )}
-
+  connection.query(
+    'SELECT * FROM department WHERE `name` = ?',
+    [''],
+    function(err, results) {
+      console.table(results);
+      firstQuestion();
+    }
+  );
+  }
 
 var viewAllEmployees = ()=>{
   connection.query(
@@ -130,7 +125,7 @@ viewAllDept();
   })
   .catch((error) => {
     if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
+    
     } else {
       console.log(error)
     }
